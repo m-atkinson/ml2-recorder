@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ml2.recorder"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="29"
+        android:targetSdkVersion="31" />
+
+    <!-- ML2 Permissions -->
+    <uses-permission android:name="com.magicleap.permission.EYE_TRACKING" />
+    <uses-permission android:name="com.magicleap.permission.HAND_TRACKING" />
+    <uses-permission android:name="com.magicleap.permission.PERCEPTION" />
+    <uses-permission android:name="com.magicleap.permission.DEPTH_CAMERA" />
+    <uses-permission android:name="com.magicleap.permission.SPATIAL_MAPPING" />
+
+    <!-- Android Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:label="ML2 Recorder"
+        android:extractNativeLibs="true"
+        android:hasCode="true">
+
+        <activity
+            android:name=".RecorderActivity"
+            android:label="ML2 Recorder"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="ml2recorder" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

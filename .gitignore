@@ -1,0 +1,22 @@
+# Build outputs
+app/build/
+app/.cxx/
+build/
+tests/build/
+tests/Testing/
+.gradle/
+*.apk
+
+# Pulled session data (large, not for git)
+pulled_sessions/
+
+# IDE
+.idea/
+*.iml
+local.properties
+
+# OS
+.DS_Store
+tools/__pycache__/
+
+AWSCLIV2.pkg

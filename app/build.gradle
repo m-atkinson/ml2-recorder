@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.ml2.recorder'
+    compileSdk 31
+    ndkVersion "30.0.14904198"
+
+    defaultConfig {
+        applicationId "com.ml2.recorder"
+        minSdk 29
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            abiFilters 'x86_64'  // ML2 uses AMD x86_64, not ARM
+        }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++17"
+                arguments "-DANDROID_STL=c++_shared"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+        debug {
+            debuggable true
+            jniDebuggable true
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "4.1.2"
+        }
+    }
+}
