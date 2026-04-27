@@ -1,0 +1,10 @@
+# Core host-side conversion and inspection
+numpy>=1.26
+h5py>=3.10
+vrs>=1.0
+Pillow>=10.0
+
+# Visualization and richer quality checks
+opencv-python>=4.8
+rerun-sdk>=0.22
+av>=12.0

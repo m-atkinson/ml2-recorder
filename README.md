@@ -5,6 +5,10 @@ egocentric robotics and world-model training (EgoMimic / OSMO-style pipelines).
 All capture runs on-device in native C++. Sessions are pulled over ADB and
 converted to HDF5 on the host.
 
+See [`docs/schema.md`](docs/schema.md) for the VRS-to-HDF5 data flow and
+[`docs/testing.md`](docs/testing.md) for what can be checked with and without
+ML2 hardware.
+
 ## What it records
 
 Every stream is timestamped in a common clock and written to a single VRS file:
@@ -30,7 +34,7 @@ Every stream is timestamped in a common clock and written to a single VRS file:
 - Android NDK 30, CMake 4.1+
 - OpenJDK 17+ (`brew install openjdk` or `sudo apt install openjdk-17-jdk`)
 - `adb` on PATH
-- Python 3.10+ with `numpy`, `h5py`, `pyvrs` (`pip install vrs`), optional `rerun-sdk av opencv-python`
+- Python 3.10+ (`pip install -r requirements.txt` for host tools)
 
 ## Build
 
@@ -80,7 +84,7 @@ python tools/view_rerun.py session.h5
 Lightweight OpenCV viewer:
 
 ```bash
-python tools/view_session.py session.h5
+python tools/view_session.py session_YYYYMMDD_HHMMSS.vrs
 ```
 
 One-command install → record → pull → validate → convert:
