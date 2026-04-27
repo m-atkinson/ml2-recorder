@@ -1,4 +1,4 @@
-# ml2-pipeline
+# ml2-recorder
 
 Multi-sensor recorder for the Magic Leap 2, producing synchronized datasets for
 egocentric robotics and world-model training (EgoMimic / OSMO-style pipelines).
@@ -156,8 +156,7 @@ time; it is not redistributed with this project.
 ## Contributing
 
 Bug reports, patches, and hardware porting notes welcome. See
-[`CONTRIBUTING.md`](CONTRIBUTING.md) for the dev loop, and
-[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) for community expectations.
+[`CONTRIBUTING.md`](CONTRIBUTING.md) for the dev loop.
 
 Security issues: please follow [`SECURITY.md`](SECURITY.md) rather than
 opening a public issue.

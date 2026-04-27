@@ -10,7 +10,7 @@ sessions — please report it privately.
 **Do not open a public GitHub issue** for security problems.
 
 Instead, open a
-[private security advisory](https://github.com/m-atkinson/ml2-pipeline/security/advisories/new)
+[private security advisory](https://github.com/m-atkinson/ml2-recorder/security/advisories/new)
 on this repository, or email the maintainer directly if you cannot use GitHub
 Security Advisories.
 
