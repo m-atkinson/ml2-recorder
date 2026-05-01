@@ -5,6 +5,38 @@ egocentric robotics and world-model training (EgoMimic / OSMO-style pipelines).
 All capture runs on-device in native C++. Sessions are pulled over ADB and
 converted to HDF5 on the host.
 
+## Showcase
+
+<p align="center">
+  <img src="docs/images/hero.gif" alt="Multi-stream dashboard rendered from a folding-clothes session" width="100%">
+</p>
+
+A 4-second window from the *folding clothes* sample session (243 s, 3,646 RGB
+frames). RGB, depth, world cameras, head pose, hand confidence, eye fixation,
+and IMU magnitudes — all locked to one device-clock timeline.
+
+<table>
+  <tr>
+    <td width="33%" align="center"><img src="docs/images/overview.png" alt="Every stream at one timestamp"></td>
+    <td width="33%" align="center"><img src="docs/images/hand_skeleton.png" alt="Hand keypoints in world frame"></td>
+    <td width="33%" align="center"><img src="docs/images/trajectory.png" alt="Head trajectory + spatial mesh"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Every stream at one timestamp</sub></td>
+    <td align="center"><sub>28 keypoints per hand, world-frame</sub></td>
+    <td align="center"><sub>Head trajectory + spatial mesh</sub></td>
+  </tr>
+</table>
+
+> **Showcase caveats.** The trajectory plot includes the first ~10 s of head
+> motion while the user dons the headset and world-tracking locks in — trim
+> before training. Eye `fixation_point` is the binocular-ray intersection;
+> values can land far away (session p75 ≈ 4.3 m) when gaze rays are nearly
+> parallel, so treat near-field fixation as best-effort. Depth on this firmware
+> exposes `depth/confidence` as uniformly zero, and raw `depth/images` retains
+> sub-cm "no-return" pixels — clamp to the sensor's nominal range
+> (≈0.3–4 m) before consuming.
+
 See [`docs/schema.md`](docs/schema.md) for the VRS-to-HDF5 data flow and
 [`docs/testing.md`](docs/testing.md) for what can be checked with and without
 ML2 hardware.
