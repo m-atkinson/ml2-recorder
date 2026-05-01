@@ -28,6 +28,15 @@ and IMU magnitudes — all locked to one device-clock timeline.
   </tr>
 </table>
 
+> **Showcase caveats.** The trajectory plot includes the first ~10 s of head
+> motion while the user dons the headset and world-tracking locks in — trim
+> before training. Eye `fixation_point` is the binocular-ray intersection;
+> values can land far away (session p75 ≈ 4.3 m) when gaze rays are nearly
+> parallel, so treat near-field fixation as best-effort. Depth on this firmware
+> exposes `depth/confidence` as uniformly zero, and raw `depth/images` retains
+> sub-cm "no-return" pixels — clamp to the sensor's nominal range
+> (≈0.3–4 m) before consuming.
+
 See [`docs/schema.md`](docs/schema.md) for the VRS-to-HDF5 data flow and
 [`docs/testing.md`](docs/testing.md) for what can be checked with and without
 ML2 hardware.
